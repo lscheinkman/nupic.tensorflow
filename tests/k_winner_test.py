@@ -22,6 +22,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.python import keras
 from tensorflow.python.keras import keras_parameterized, testing_utils
+from tensorflow.python.keras.utils.generic_utils import custom_object_scope
 from tensorflow.python.platform import test
 from tensorflow.python.training import gradient_descent
 
@@ -311,7 +312,7 @@ class KWinners1DLayerTest(KWinnersTestBase, keras_parameterized.TestCase):
         }
 
         # Use testing utils to validate layer functionality.
-        with keras.utils.custom_object_scope(CUSTOM_OBJECTS):
+        with custom_object_scope(CUSTOM_OBJECTS):
             testing_utils.layer_test(
                 KWinners, kwargs=kwargs, input_data=x, expected_output=expected
             )
@@ -489,7 +490,7 @@ class KWinners2DLayerTest(keras_parameterized.TestCase):
             "boost_strength": 0.0,
             "data_format": "channels_first",
         }
-        with keras.utils.custom_object_scope(CUSTOM_OBJECTS):
+        with custom_object_scope(CUSTOM_OBJECTS):
             testing_utils.layer_test(
                 KWinners2d, kwargs=kwargs, input_data=x, expected_output=expected
             )
@@ -509,7 +510,7 @@ class KWinners2DLayerTest(keras_parameterized.TestCase):
             "data_format": "channels_first",
         }
 
-        with keras.utils.custom_object_scope(CUSTOM_OBJECTS):
+        with custom_object_scope(CUSTOM_OBJECTS):
             testing_utils.layer_test(
                 KWinners2d, kwargs=kwargs, input_data=x, expected_output=expected
             )
@@ -534,7 +535,7 @@ class KWinners2DLayerTest(keras_parameterized.TestCase):
             "boost_strength": 0.0,
             "data_format": "channels_first",
         }
-        with keras.utils.custom_object_scope(CUSTOM_OBJECTS):
+        with custom_object_scope(CUSTOM_OBJECTS):
             testing_utils.layer_test(
                 KWinners2d, kwargs=kwargs, input_data=x, expected_output=expected
             )
@@ -557,7 +558,7 @@ class KWinners2DLayerTest(keras_parameterized.TestCase):
             "boost_strength": 0.0,
             "data_format": "channels_first",
         }
-        with keras.utils.custom_object_scope(CUSTOM_OBJECTS):
+        with custom_object_scope(CUSTOM_OBJECTS):
             testing_utils.layer_test(
                 KWinners2d, kwargs=kwargs, input_data=x, expected_output=expected
             )
